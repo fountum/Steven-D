@@ -32,28 +32,22 @@ public class Main {
     public static int lowest = 999999999;
     private static int[][] pagesData;
     private static ArrayList<Page> pages = new ArrayList<>();
+    private static ArrayList<Page> queue = new ArrayList<>();
 
-    public static void visit(Page page, int steps){
-        if (page.pathsAvailable==0){
-            page.visted = true;
-            visits++;
-            if (steps < lowest){
-                lowest = steps;
+    public static void visit(Page page, int level){
+        if (page.pathsAvailable ==0 ){
+            if (level < lowest){
+                lowest = level;
             }
-        } else if (page.visted == false) {
-            page.visted = true;
-            visits++;
-            for (int i = 0; i < page.pathsAvailable; i++) {
-                visit(pages.get(page.paths[i]-1), steps+1);
-
-            }
+        }
+        else{
 
         }
 
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(new File("H:\\My Documents\\Steven-D\\Choose Your Own Adventure\\src\\in.txt"));
         int N = Integer.parseInt(in.nextLine());
         pagesData = new int[N][N];
         for (int i = 0; i < N; i++){
@@ -89,7 +83,13 @@ public class Main {
             System.out.println("N");
         }
 
-        System.out.println(lowest);
+        if (lowest != 999999999){
+            System.out.println(lowest);
+        }
+        else{
+            System.out.println(0);
+        }
+
 
 
     }
