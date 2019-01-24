@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
@@ -26,69 +27,76 @@ public class Main {
         public String toString() {
             return ("id:" + id + " pathsAvailable:" + pathsAvailable+ " visted:" + visted);
         }
+        public ArrayList<Page> getPaths(){
+            ArrayList<Page> temp = new ArrayList<>();
+            for (int i = 0; i < pathsAvailable; i++) {
+                Page p = pages.get(paths[i]-1);
+                if (p.visted !=true && !p.equals(this) && !queue.contains(p)) { //adds no pages that have already been visited or self
+                    temp.add(p);
+                }
+            }
+            return temp;
+        }
+
     }
 
-    public static int visits = 0;
-    public static int lowest = 999999999;
     private static int[][] pagesData;
     private static ArrayList<Page> pages = new ArrayList<>();
-    private static ArrayList<Page> queue = new ArrayList<>();
-
-    public static void visit(Page page, int level){
-        if (page.pathsAvailable ==0 ){
-            if (level < lowest){
-                lowest = level;
-            }
-        }
-        else{
-
-        }
-
-    }
+    private static LinkedList<Page> queue = new LinkedList<>();
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new File("H:\\My Documents\\Steven-D\\Choose Your Own Adventure\\src\\in.txt"));
+        Scanner in = new Scanner(System.in);
         int N = Integer.parseInt(in.nextLine());
-        pagesData = new int[N][N];
+        pagesData = new int[N][N+1];
+        int steps = 0;
+        int levelPaths; //number of possible non-repeat paths for the current level
+        int visits = 0;
+        int level = 1;
+        int lowest = 999999999;
         for (int i = 0; i < N; i++){
             String temp[] = in.nextLine().split(" ");
-            for (int ii = 1; ii < Integer.parseInt(temp[0])+1; ii++) {
+            for (int ii = 1; ii < temp.length; ii++) {
                 pagesData[i][ii] = Integer.parseInt(temp[ii]);
             }
             pages.add(new Page(i+1, Integer.parseInt(temp[0]), false ));
-
-
         }
 
-
-        /*
-        for (int i = 0; i < N; i++){
-            System.out.println(pagesData[i][0]);
-            for (int ii = 1; ii < pagesData[i][0]+1; ii++) {
-                System.out.println(pagesData[i][ii]);
+        queue.add(pages.get(0));
+        levelPaths = 1;
+        while (!queue.isEmpty()){
+            Page page = queue.remove(); //grabs first item from list and removes it
+            steps++;
+            if (page.pathsAvailable == 0){
+                page.visted = true;
+                if (level < lowest){
+                    lowest = level;
+                }
+            } else if (page.visted == false) {
+                page.visted = true;
+                if (page.pathsAvailable != 0) {
+                    queue.addAll(page.getPaths());
+                }
+                if (steps == levelPaths){
+                    steps = 0;
+                    levelPaths = queue.size();
+                    level++;
+                }
             }
         }
 
-
-        */
-
-
-
-        visit(pages.get(0), 1);
-
-
+        for (int i = 0; i < N; i++) {
+            if(pages.get(i).visted == true){
+                visits++;
+            }
+        }
+        //printing results
         if (visits == pages.size()){
             System.out.println("Y");
         } else {
             System.out.println("N");
         }
+        System.out.println(lowest);
 
-        if (lowest != 999999999){
-            System.out.println(lowest);
-        }
-        else{
-            System.out.println(0);
-        }
 
 
 
