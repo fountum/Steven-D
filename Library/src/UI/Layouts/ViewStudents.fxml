@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="381.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.ViewStudents">
+   <children>
+      <HBox maxHeight="1.7976931348623157E308" prefHeight="410.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="tableStudents" prefHeight="408.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="colName" prefWidth="155.0" text="Name" />
+                <TableColumn fx:id="colGrade" prefWidth="63.0" text="Grade" />
+                  <TableColumn fx:id="colEmail" prefWidth="252.0" text="Email" />
+                  <TableColumn fx:id="colID" minWidth="0.0" prefWidth="127.0" text="Book ID" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
