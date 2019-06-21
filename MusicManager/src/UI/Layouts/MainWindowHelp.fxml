@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="25.0" layoutY="21.0" prefHeight="558.0" prefWidth="450.0">
+         <children>
+            <VBox prefHeight="550.0" prefWidth="450.0">
+               <children>
+                  <Label text="Welcome to the MusicManger!">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label text="Adding Music">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="By hovering over file you can select either &quot;Add Audio File&quot; or &quot;Select folder&quot;. Add Audio Files allows you to select as many files as you like to add to the queue. Select folder allows you to choose a single folder to take all the files out of (folders with lots of items will not work). The only supported audio format is mp3. Files selected by either method will be added to the queue." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Playing Music">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="You can use the playback controls at the bottom of the window to play, pause, go back to the previous song, go to the next song, adjust the volume, and fast forward/rewind the song. You can also play a song by double clicking on it. The songs play in the order the queue is in. You can reorder them by dragging and dropping the rows. You can remove songs by selecting a row and clicking &quot;Remove Song&quot; in the edit tab." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Editing Metadata">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="To start editing metadata, click on &quot;Edit Metadata&quot; in the edit tab. You can change the song title, artist, album, track number, and album artwork of the selected song." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Playlists">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="In the edit tab you can open &quot;Edit Playlists&quot;. In this window, you can create/edit playlists, which are saved as .txt files. To load a playlist, click on &quot;Open Playlist&quot; in file and select your playlist. This will clear the queue and load all the songs in the playlist into the queue." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

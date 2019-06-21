@@ -1,0 +1,36 @@
+Queue
+- supports drag and drop; move any song and it will be updated in the queue
+- songs added after the queue has already started will be added to queue
+- Can move forward and backwards in the queue
+- Automatically moves to next song in queue when current is finished
+TODO
+-Movement of current song, ex. move current song to last position in queue, no other songs play after wards. (set songIndex to table pos.) DONE!!!!
+- remove songs from queue DoN!
+- Bug test a lot of shit
+
+
+Playback
+- Songs play.
+TODO
+- Volume slider DONE
+- Audio bar thumb is unlocked and allows you to seek audio DONE
+- User can click on a song in the table and it will play DONE
+
+Metadata
+- Reads basic metadata (Track #, artist, album, title, artwork)
+- allows you to update it
+TO DO
+- change main window cover art display to the song current playing, not the song that is selected by the user (how it currently fucntions) DONE
+- Add "conflicting artwork"/"no artwork found" pictures to project
+
+Playlists
+TODO
+- Make/edit playlists in the playlist window. DONNE
+- Text files save order of playlist DONEOFNODSNOIN
+
+UI
+TODO
+- add shit tons of images
+- css
+- reorganize the objects
+- help pop up
